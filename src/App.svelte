@@ -1,23 +1,21 @@
 <script>
   import { onMount } from 'svelte';
-
+  import { getCharacters } from './services/getCharacters';
+  import Character from './lib/Character.svelte';
   let characters = []; 
 
   onMount( async () => {
-    const res = await fetch('https://rickandmortyapi.com/api/character');
-    const data = await res.json();
-    const { results } = data;
-    characters = results;
+    getCharacters().then(results => characters = results);
   })
 </script>
 
 <main>
   <h1>Hello World</h1>
-  {#if !characters}
+  {#if characters.length === 0}
     <p>Loading...</p>
     {:else}
     {#each characters as character}
-      <li>{character.name}</li>
+      <Character {character} />
     {/each}
   {/if}
 </main>

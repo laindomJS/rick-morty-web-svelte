@@ -1,7 +1,8 @@
 <script>
   import { onMount } from 'svelte';
   import { getCharacters } from './services/getCharacters';
-  import Character from './lib/Character.svelte';
+  import ListOfCharacters from './lib/ListOfCharacters.svelte';
+
   let characters = []; 
 
   onMount( async () => {
@@ -9,17 +10,8 @@
   })
 </script>
 
-<main>
+<main class="w-full min-h-screen bg-slate-800 text-white flex justify-content items-center flex-col">
   <h1>Hello World</h1>
-  {#if characters.length === 0}
-    <p>Loading...</p>
-    {:else}
-    {#each characters as character}
-      <Character {character} />
-    {/each}
-  {/if}
+  <ListOfCharacters {characters} />
 </main>
 
-<style>
-
-</style>

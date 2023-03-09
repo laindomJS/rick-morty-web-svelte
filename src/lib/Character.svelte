@@ -2,7 +2,7 @@
   export let character;
 </script>
 
-<div>
-  <h3>{character.name}</h3>
-  <span>{character.status}</span>
+<div class="flex space-x-5 my-6">
+  <h3 class="font-semibold text-xl">{character.name}</h3>
+  <span class="font-medium text-lg">{character.status}</span>
 </div>

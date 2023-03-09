@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { getCharacters } from './services/getCharacters';
   import ListOfCharacters from './lib/ListOfCharacters.svelte';
+  import Header from './lib/Header.svelte';
 
   let characters = []; 
 
@@ -10,8 +11,8 @@
   })
 </script>
 
-<main class="w-full min-h-screen bg-slate-800 text-white flex justify-content items-center flex-col">
-  <h1>Hello World</h1>
+<div class="w-full min-h-screen bg-slate-100 text-white flex justify-content items-center flex-col">
+  <Header />
   <ListOfCharacters {characters} />
-</main>
+</div>
 

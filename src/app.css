@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.button {
+  @apply w-20 md:w-32 h-10 font-semibold text-white bg-blue-500
+}

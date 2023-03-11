@@ -8,17 +8,18 @@ const createCharacters = () => {
   
   return {
     subscribe,
-    setCharacters: () => {
-      getCharacters({ page }).then(results => set(results));
+    setCharacters: async () => {
+      await getCharacters({ page }).then(results => set(results));
     },
-    nextPage: () => {
-      page++;
-      getCharacters({ page }).then(results => update(char => char = results));
+    nextPage: async () => {
+      if (page === 42) return;
+      page = page + 1; 
+      await getCharacters({ page }).then(results => update(chars => chars = results));
     },
-    previousPage: () => {
-      page--;
+    previousPage: async () => {
       if (page === 1) return;
-      getCharacters({ page }).then(results => update(char => char = results));
+      page = page - 1;
+      await getCharacters({ page }).then(results => update(chars => chars = results));
     }
   }
 }
